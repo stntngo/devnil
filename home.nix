@@ -27,11 +27,25 @@
     diffutils
     ripgrep
     fd
+    gnused
 
     neovim-nightly
 
     go
     gopls
+    gofumpt
+    golines
+    gotools
+    gomodifytags
+    gotests
+    iferr
+    impl
+    reftools
+    delve
+    ginkgo
+    richgo
+    gotestsum
+    govulncheck
 
     zig
     zls
@@ -51,11 +65,15 @@
 
     zsh
     glibc
+    ncurses5
   ];
 
   home.file = {
     ".config/nvim/init.lua".source = /root/dotfiles/nvim/init.lua;
-    ".config/nvim/fnl".source = /root/dotfiles/nvim/fnl;
+    ".config/nvim/fnl" = {
+      recursive = true;
+      source = /root/dotfiles/nvim/fnl;
+    };
   };
 
   # You can also manage environment variables but you will have to manually
@@ -128,6 +146,7 @@
       trouble-nvim
       vim-fugitive
       lualine-nvim
+      go-nvim
     ];
   };
 }

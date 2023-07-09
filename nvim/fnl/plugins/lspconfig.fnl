@@ -38,20 +38,6 @@
 
 (vim.api.nvim_create_autocmd
   :LspAttach
-  {:group (vim.api.nvim_create_augroup "user_lsp_go_config" {:clear true})
-   :pattern ["*.go"]
-   :callback
-   (fn [ev]
-     (let [bufnr (. ev :buf)]
-       (vim.api.nvim_create_autocmd
-         :BufWritePre
-         {:group (vim.api.nvim_create_augroup (.. "user_lsp_go_organize_imports_b_" bufnr) {:clear true})
-          :callback (fn []
-                      (vim.lsp.buf.code_action {:context {:only ["source.organizeImports"]}
-                                                :apply true}))})))})
-
-(vim.api.nvim_create_autocmd
-  :LspAttach
   {:group (vim.api.nvim_create_augroup "user_lsp_config" {:clear true})
    :callback 
    (fn [ev]
